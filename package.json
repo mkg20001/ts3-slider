@@ -1,0 +1,26 @@
+{
+  "name": "ts3-slider",
+  "version": "0.0.1",
+  "main": "lib.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "ts3-slider": "./app.js"
+  },
+  "author": "Maciej Krüger <mkg20001@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.6.0",
+    "bunyan": "^1.8.12",
+    "hapi": "^17.4.0",
+    "teamspeak-query-client": "^0.1.6"
+  },
+  "devDependencies": {},
+  "description": "TeamSpeak3 Slider for your website",
+  "keywords": [
+    "teamspeak3",
+    "ts3",
+    "slider"
+  ]
+}
