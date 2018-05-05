@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 'use strict'
 
 const Query = require('teamspeak-query-client')
@@ -33,6 +35,12 @@ function updateChannelList (cb) {
     cb()
   })
 }
+
+server.route({
+  method: 'GET',
+  path: '/',
+  handler: (request, h) => h.redirect('https://github.com/mkg20001/ts3-slider')
+})
 
 server.route({
   method: 'GET',
