@@ -7,7 +7,7 @@ const { waterfall } = require('async')
 
 let CHANNELS
 
-const server = new Hapi.server{ // creates a new api server
+const server = new Hapi.server({ // creates a new api server
   port: 5389,
   host: '::',
   routes: {
@@ -28,7 +28,7 @@ function update (cb) {
     if (err) return cb(err)
     CHANNELS = res
     cb()
-  }
+  })
 }
 
 waterfall([
