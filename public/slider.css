@@ -9,6 +9,7 @@
   background: #afafaf;
   overflow: hidden;
   white-space: nowrap;
+  z-index: 1000;
 }
 
 .ts3-slider:hover {
