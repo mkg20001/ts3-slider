@@ -22,5 +22,13 @@
     "teamspeak3",
     "ts3",
     "slider"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkg20001/ts3-slider.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mkg20001/ts3-slider/issues"
+  },
+  "homepage": "https://github.com/mkg20001/ts3-slider#readme"
 }
