@@ -2,7 +2,7 @@
   background: #fff;
   min-width: 64px;
   min-height: 64px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 35%;
   transition: 1.5s all;
