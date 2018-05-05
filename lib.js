@@ -24,7 +24,7 @@ function processClient (client) {
 }
 
 function getChannelIcon (channel) {
-  let s = channel.channel_needed_subscribe_power ? '_subscribed' : ''
+  let s = !channel.channel_needed_subscribe_power ? '_subscribed' : ''
   let p = 'channel_'
   if (channel.channel_flag_password) return p + 'yellow' + s
   if (channel.channel_maxclients !== -1) return p + 'red' + s
