@@ -28,7 +28,7 @@ function getChannelIcon (channel) {
   let p = 'channel_'
   if (channel.channel_flag_password) return p + 'yellow' + s
   if (channel.channel_maxclients !== -1) return p + 'red' + s
-  return 'channel' + s
+  return 'channel' + (s || '_unsubscribed')
 }
 
 function processChannel (channel) {
