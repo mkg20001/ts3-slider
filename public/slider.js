@@ -76,7 +76,7 @@ class Slider {
 
       if (!c.spacer && !c.cspacer) {
         i.addClass('channel-icon')
-        i.css('color', c.color).css('background', 'url(' + JSON.stringify(this.imgu + c.icon + '.svg') + ') no-repeat')
+        i.css('background', 'url(' + JSON.stringify(this.imgu + c.icon + '.svg') + ') no-repeat')
 
         e.append(i)
 
@@ -95,7 +95,7 @@ class Slider {
 
           ce.addClass('client')
           ci.addClass('client-icon')
-          ci.css('color', cl.color).css('background', 'url(' + JSON.stringify(this.imgu + cl.icon + '.svg') + ') no-repeat')
+          ci.css('background', 'url(' + JSON.stringify(this.imgu + cl.icon + '.svg') + ') no-repeat')
 
           cn.text(cl.name)
           ce.append(ci)

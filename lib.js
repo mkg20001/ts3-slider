@@ -4,15 +4,31 @@ const SPACER_RE = /^\[\*spacer.+\] */gmi
 const CSPACER_RE = /^\[cspacer.+\] */gmi
 const {waterfall} = require('async')
 
+function getClientIcon (client) {
+  if (!client.client_output_hardware) return 'hardware_output_muted'
+  if (client.client_output_muted) return 'output_muted'
+  if (!client.client_input_hardware) return 'hardware_input_muted'
+  if (client.client_input_muted) return 'input_muted'
+  let p = 'player_'
+  if (client.client_is_channel_commander) p += 'commander_'
+  return p + (client.client_flag_talking ? 'on' : 'off')
+}
+
 function processClient (client) {
   let out = {}
 
   out.name = client.client_nickname
-//  out.isTalking = Boolean(client.client_flag_talking)
-  out.color = client.client_flag_talking ? '#22BBCC' : '#2222CC'
-  out.icon = client.client_flag_talking ? 'player_on' : 'player_off'
+  out.icon = getClientIcon(client)
 
   return out
+}
+
+function getChannelIcon (channel) {
+  let s = channel.channel_needed_subscribe_power ? '_subscribed' : ''
+  let p = 'channel_'
+  if (channel.channel_flag_password) return p + 'yellow' + s
+  if (channel.channel_maxclients !== -1) return p + 'red' + s
+  return 'channel' + s
 }
 
 function processChannel (channel) {
@@ -29,8 +45,7 @@ function processChannel (channel) {
     out.name = name
   }
 
-  out.color = channel.channel_maxclients === -1 ? '#2222CC' : '#CC2222'
-  out.icon = channel.channel_maxclients === -1 ? 'channel_red' : 'channel_green'
+  out.icon = getChannelIcon(channel)
 
   out.id = channel.cid
   out.pid = channel.pid
