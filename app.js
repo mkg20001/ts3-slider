@@ -57,7 +57,7 @@ waterfall([
   cb => toCb(server.start(), cb)
 ], err => {
   if (err) {
-    bunyan.error(err)
+    log.error(err)
     throw err
   }
 
