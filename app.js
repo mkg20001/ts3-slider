@@ -63,6 +63,6 @@ waterfall([
 
   log.info('Online')
 
-  const n = () => setTimeout(() => updateChannelList(once(n)), 100)
+  const n = () => setTimeout(() => updateChannelList(once(n)), config.interval || 1000)
   n()
 })
