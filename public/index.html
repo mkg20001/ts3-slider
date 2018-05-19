@@ -37,9 +37,17 @@
 <script>
   /* Demo */
 
-  const $dev = window.location.href.endsWith('?d')
   window.SLIDER = new Slider(document.getElementById('slider'), 'http://' + (window.location.hostname || 'localhost') + ':5389/ts3', 'your-server.de', window.location.protocol + '//' + window.location.host + '/img/ts3/')
-  window.SLIDER.update(console.log)
-  const n = () => setTimeout(() => window.SLIDER.update(once(n)), 100)
-  if (!$dev) n()
+  window.SLIDER.update(() => {})
+  let sliderTimeout
+  const n = () => (sliderTimeout = setTimeout(() => window.SLIDER.update(once(n)), 100))
+  n()
+
+  /* Development code (remove) */
+
+  const $dev = window.location.href.endsWith('?d')
+  if ($dev) {
+    clearTimeout(sliderTimeout)
+    $('#slider').addClass('ts3-slider-force-open')
+  }
 </script>

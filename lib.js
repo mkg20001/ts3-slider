@@ -5,6 +5,7 @@ const CSPACER_RE = /^\[cspacer.+\] */gmi
 const {waterfall} = require('async')
 
 function getClientIcon (client) {
+  if (client.client_away) return 'away'
   if (!client.client_output_hardware) return 'hardware_output_muted'
   if (client.client_output_muted) return 'output_muted'
   if (!client.client_input_hardware) return 'hardware_input_muted'
@@ -18,6 +19,7 @@ function processClient (client) {
   let out = {}
 
   out.name = client.client_nickname
+  if (typeof client.client_away_message === 'string') out.name += ' [' + client.client_away_message + ']'
   out.icon = getClientIcon(client)
 
   return out
