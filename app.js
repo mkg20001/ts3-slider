@@ -52,7 +52,7 @@ waterfall([
   cb => query.connect(cb),
   cb => query.login(config.user, config.pw, cb),
   (res, cb) => query.cmd('use', config.vServer, cb),
-  (res, cb) => query.cmd('clientupdate', { client_nickname: 'TeamSpeak3 Slider' }, cb),
+  (res, cb) => query.cmd('clientupdate', { client_nickname: config.nickname || 'TeamSpeak3 Slider' }, cb),
   (res, cb) => updateChannelList(cb),
   cb => toCb(server.start(), cb)
 ], err => {
