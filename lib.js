@@ -1,7 +1,7 @@
 'use strict'
 
-const SPACER_RE = /^\[\*spacer.+\] */gmi
-const CSPACER_RE = /^\[cspacer.+\] */gmi
+const SPACER_RE = /^\[\*spacer.*\] */gmi
+const CSPACER_RE = /^\[cspacer.*\] */gmi
 const {waterfall} = require('async')
 
 function getClientIcon (client) {
