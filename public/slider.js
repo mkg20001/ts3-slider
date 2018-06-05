@@ -33,7 +33,7 @@ class Slider {
     this.imgu = ts3imgurl
   }
   get (cb) {
-    fetch(this.api).then(res => res.json(), cb).then(r => cb(null, r), cb)
+    fetch(this.api + '?cache=' + Date.now()).then(res => res.json(), cb).then(r => cb(null, r), cb)
   }
   update (cb) {
     const {e} = this
