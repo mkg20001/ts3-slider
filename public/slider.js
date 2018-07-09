@@ -23,6 +23,12 @@ const open = (link) => {
 
 /* Slider Class */
 
+let $ = window.jQuery
+
+if (module && module.exports) {
+  $ = require('jquery')
+}
+
 class Slider {
   constructor (e, api, ts3, ts3imgurl) {
     this.api = api
@@ -110,4 +116,8 @@ class Slider {
 
     return m
   }
+}
+
+if (module && module.exports) {
+  module.exports = Slider
 }
