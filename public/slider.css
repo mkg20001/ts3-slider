@@ -43,8 +43,12 @@
 
 .ts3-slider ul {
   list-style-type: none;
-  padding-left: 1em;
+  padding-left: .5em;
   margin-top: 0;
+}
+
+.ts3-slider .channels-main > .channels {
+  margin-bottom: 5em;
 }
 
 .ts3-slider .slider-header-hidden {
