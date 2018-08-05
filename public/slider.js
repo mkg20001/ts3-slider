@@ -25,7 +25,7 @@ const open = (link) => {
 
 let $ = window.jQuery
 
-if (module && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   $ = require('jquery')
 }
 
@@ -118,6 +118,6 @@ class Slider {
   }
 }
 
-if (module && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = Slider
 }
