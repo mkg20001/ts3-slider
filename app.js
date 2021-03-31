@@ -5,7 +5,7 @@
 const Query = require('teamspeak-query-client')
 const bunyan = require('bunyan')
 const TS3Slider = require('./lib')
-const Hapi = require('hapi')
+const Hapi = require('@hapi/hapi')
 const { waterfall } = require('async')
 const once = require('once')
 const toCb = (prom, cb) => prom.then((...r) => cb(null, ...r), cb)

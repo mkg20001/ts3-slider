@@ -3,7 +3,15 @@
   "version": "0.0.5",
   "main": "lib.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -A",
+    "cov": "nyc mocha",
+    "lint": "eslint .",
+    "fix": "eslint --fix ."
+  },
+  "template": {
+    "extends": [
+      "nodeEslint"
+    ]
   },
   "bin": {
     "ts3-slider": "./app.js"
@@ -11,12 +19,19 @@
   "author": "Maciej Krüger <mkg20001@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "async": "^2.6.0",
-    "bunyan": "^1.8.12",
-    "hapi": "^17.4.0",
+    "@hapi/hapi": "^20.1.2",
+    "async": "^3.2.0",
+    "bunyan": "^1.8.15",
     "teamspeak-query-client": "^0.1.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "*",
+    "eslint-config-ipfs": "*",
+    "eslint-config-oclif": "*",
+    "mkgs-tool": "^0.1.15",
+    "mocha": "*",
+    "nyc": "*"
+  },
   "description": "TeamSpeak3 Slider for your website",
   "keywords": [
     "teamspeak3",
