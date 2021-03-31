@@ -22,6 +22,7 @@
     "@hapi/hapi": "^20.1.2",
     "async": "^3.2.0",
     "bunyan": "^1.8.15",
+    "once": "^1.4.0",
     "teamspeak-query-client": "^0.1.6"
   },
   "devDependencies": {

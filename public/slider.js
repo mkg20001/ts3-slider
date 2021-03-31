@@ -26,7 +26,7 @@ const open = link => {
 let $ = window.jQuery
 
 if (typeof module !== 'undefined' && module.exports) {
-  $ = require('jquery')
+  $ = require('jquery') // eslint-disable-line node/no-missing-require
 }
 
 class Slider {

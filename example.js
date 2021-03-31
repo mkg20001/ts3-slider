@@ -2,7 +2,7 @@
 
 const TS3Slider = require('.')
 const Query = require('teamspeak-query-client')
-const Hapi = require('hapi')
+const Hapi = require('@hapi/hapi')
 const { waterfall } = require('async')
 
 let CHANNELS

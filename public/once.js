@@ -1,3 +1,5 @@
+'use strict'
+
 function wrappy (fn, cb) {
   if (fn && cb) return wrappy(fn)(cb)
 
@@ -44,7 +46,7 @@ once.proto = wrappy(once(function () {
 }))
 
 function once (fn) {
-  var f = function () {
+  const f = function () {
     if (f.called) return f.value
     f.called = true
     return f.value = fn.apply(this, arguments)
@@ -54,7 +56,7 @@ function once (fn) {
 }
 
 function onceStrict (fn) {
-  var f = function () {
+  const f = function () {
     if (f.called) {
       throw new Error(f.onceError)
     }
