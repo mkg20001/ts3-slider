@@ -1,6 +1,6 @@
 'use strict'
 
-const TS3Slider = require('./')
+const TS3Slider = require('.')
 const Query = require('teamspeak-query-client')
 const Hapi = require('hapi')
 const { waterfall } = require('async')

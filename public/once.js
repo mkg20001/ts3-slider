@@ -12,12 +12,12 @@ function wrappy (fn, cb) {
   return wrapper
 
   function wrapper () {
-    var args = new Array(arguments.length)
-    for (var i = 0; i < args.length; i++) {
+    const args = new Array(arguments.length)
+    for (let i = 0; i < args.length; i++) {
       args[i] = arguments[i]
     }
-    var ret = fn.apply(this, args)
-    var cb = args[args.length - 1]
+    const ret = fn.apply(this, args)
+    const cb = args[args.length - 1]
     if (typeof ret === 'function' && ret !== cb) {
       Object.keys(cb).forEach(function (k) {
         ret[k] = cb[k]
@@ -61,7 +61,7 @@ function onceStrict (fn) {
     f.called = true
     return f.value = fn.apply(this, arguments)
   }
-  var name = fn.name || 'Function wrapped with `once`'
+  const name = fn.name || 'Function wrapped with `once`'
   f.onceError = name + " shouldn't be called more than once"
   f.called = false
   return f

@@ -17,7 +17,7 @@ const ts3link = (serv, chan) => {
 
 /* Open Shim */
 
-const open = (link) => {
+const open = link => {
   window.open(link)
 }
 
@@ -38,11 +38,13 @@ class Slider {
     $(e).addClass('ts3-slider')
     this.imgu = ts3imgurl
   }
+
   get (cb) {
     window.fetch(this.api + '?cache=' + Date.now()).then(res => res.json(), cb).then(r => cb(null, r), cb)
   }
+
   update (cb) {
-    const {e} = this
+    const { e } = this
     this.get((err, res) => {
       if (err) return cb(err)
       if (!Array.isArray(res)) return cb(new Error('No res'))
@@ -52,8 +54,9 @@ class Slider {
       cb()
     })
   }
+
   buildTree (el, tree, pre) {
-    let m = $('<ul></ul>')
+    const m = $('<ul></ul>')
     m.addClass('channels')
 
     if (pre) {
@@ -61,10 +64,10 @@ class Slider {
     }
 
     tree.forEach(c => {
-      let eo = $('<li></li>')
-      let e = $('<div></div>')
-      let n = $('<tt></tt>')
-      let i = $('<i></i>')
+      const eo = $('<li></li>')
+      const e = $('<div></div>')
+      const n = $('<tt></tt>')
+      const i = $('<i></i>')
 
       e.addClass('channel')
       eo.addClass('channel-outer')
@@ -95,9 +98,9 @@ class Slider {
 
       this.buildTree(eo, c.sub, m2 => {
         c.clients.forEach(cl => {
-          let ce = $('<li></li>')
-          let cn = $('<tt></tt>')
-          let ci = $('<i></i>')
+          const ce = $('<li></li>')
+          const cn = $('<tt></tt>')
+          const ci = $('<i></i>')
 
           ce.addClass('client')
           ci.addClass('client-icon')

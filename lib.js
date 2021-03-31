@@ -2,7 +2,7 @@
 
 const SPACER_RE = /^\[\*spacer.*\] */gmi
 const CSPACER_RE = /^\[cspacer.*\] */gmi
-const {waterfall} = require('async')
+const { waterfall } = require('async')
 
 function getClientIcon (client) {
   if (client.client_away) return 'away'
@@ -16,7 +16,7 @@ function getClientIcon (client) {
 }
 
 function processClient (client) {
-  let out = {}
+  const out = {}
 
   out.name = client.client_nickname
   if (typeof client.client_away_message === 'string') out.name += ' [' + client.client_away_message + ']'
@@ -26,16 +26,16 @@ function processClient (client) {
 }
 
 function getChannelIcon (channel) {
-  let s = !channel.channel_needed_subscribe_power ? '_subscribed' : ''
-  let p = 'channel_'
+  const s = !channel.channel_needed_subscribe_power ? '_subscribed' : ''
+  const p = 'channel_'
   if (channel.channel_flag_password) return p + 'yellow' + s
   if (channel.channel_maxclients !== -1) return p + 'red' + s
   return 'channel' + (s || '_unsubscribed')
 }
 
 function processChannel (channel) {
-  let out = {}
-  let name = channel.channel_name
+  const out = {}
+  const name = channel.channel_name
   out.nid = name
   if (name.match(SPACER_RE) && !channel.pid) {
     out.name = name.replace(SPACER_RE, '')
@@ -71,8 +71,8 @@ function fetchData (query, cb) {
     (cl, ch, cb) => {
       cl = cl.filter(c => !c.client_type)
       ch.forEach(c => (c.clients = cl.filter(c2 => c.cid === c2.cid)))
-      let out = ch.map(processChannel)
-      let tree = buildTree(out.filter(c => !c.pid), out, out.reduce((a, b) => {
+      const out = ch.map(processChannel)
+      const tree = buildTree(out.filter(c => !c.pid), out, out.reduce((a, b) => {
         a[b.id] = b
         return a
       }, {}))
@@ -86,6 +86,7 @@ class TS3Slider {
   constructor (query) {
     this.query = query
   }
+
   fetch (cb) {
     return fetchData(this.query, cb)
   }
